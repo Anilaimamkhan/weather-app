@@ -1,242 +1,30 @@
 
 
-// ...............   THAPA TECHNICAL
-// import React, { useEffect, useState } from 'react'
-// import "./App.css"
-// import img from "./images/weather.png"
-
-// const App = () => {
-//   const [city, setCity] = useState(null)
-//   const [search, setSearch] = useState("")
-//   const searchkeyWords = (e) => {
-//     setSearch(e.target.value)
-//   }
-//   useEffect(() => {
-//     const fetchapi = async () => {
-//       const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=112c8ce65e0fb907e0450a805f832294`
-//       const response = await fetch(url)
-//       const responseJson = await response.json()
-//       console.log(responseJson)
-//       setCity(responseJson.main)
-
-//     }
-//     fetchapi()
-//   },[search])
-//   return (
-//     <>
-//       <div className="main">
-//         <div className="container">
-//           <div className="input">
-//             <input type="text" placeholder='search' onChange={searchkeyWords} value={search} />
-//             {/* <i className="fa-solid fa-magnifying-glass"></i> */}
-//           </div>
-//           <div>
-//           {!city ? ( <p className='notFound'>city not found</p> ):
-//           <>
-//           <div className="weather">
-//               <div className="images">
-//                 <img src={img} alt=""  />
-//               </div>
-//               <h2>{search}</h2>
-//             </div>
-//             <div className="temp">
-//               <div className="tem_box">
-//                 <i class="fa-solid fa-temperature-three-quarters"></i>
-//                 <p>Temorature {city.temp}</p>
-//               </div>
-//               <div className="tem_box">
-//                 <i className="fa-solid fa-cloud"></i>
-//                 <p>Humidity {city.humidity}</p>
-
-//               </div>
-//             </div>
-//           </> 
-//           }
-//           </div>
-
-
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default App
-
-
-// // class two
+// // 1st
 // import React, { useState } from 'react'
 // import "./App.css"
-// import img from "./images/weather.png"
-// // import axios from "axios"
-
-// const App = () => {
-//   const [search, setSearch] = useState("")
-//   const [city, setCity] = useState(null)
-//   const searchkeyWords = (e) => {
-//     setSearch(e.target.value)
-//   }
-
-//   const fetchWeather = async () => {
-//     try {
-//       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${"112c8ce65e0fb907e0450a805f832294"}`)
-//       setCity(response)
-//       console.log(response)
-//     } catch (error) {
-//       console.log("error featcging weather.............", error)
-//     }
-//   }
-//   const handleClick = () => {
-//     fetchWeather()
-//   }
-//   return (
-//     <>
-//       <div className="main">
-//         <div className="container">
-//           <div className="input">
-//             <input type="text" placeholder='search' onChange={searchkeyWords} value={search} />
-//             <i className="fa-solid fa-magnifying-glass" onClick={handleClick}></i>
-//           </div>
-//           <div>
-
-
-//             {
-//               city && 
-//               <>
-//                 <div className="weather">
-//                   <div className="images">
-//                     <img src={img} alt="" />
-//                   </div>
-//                   <h2>{city.data.temp}</h2>
-//                   <h2>{city}</h2>
-
-//                 </div>
-//                 <div className="temp">
-//                   <div className="tem_box">
-//                     <i className="fa-solid fa-temperature-three-quarters"></i>
-//                     <p>{city.data.humidity}</p>
-//                   </div>
-//                   <div className="tem_box">
-//                     <i className="fa-solid fa-cloud"></i>
-//                     <p>temprature</p>
-
-//                   </div>
-//                 </div>
-//               </>
-
-
-
-//             }
-
-//           </div>
-
-
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default App
-
-
-
-
-
-// import React, { useState } from 'react'
-// import "./App.css"
-// import img from "./images/weather.png"
-
-// const App = () => {
-//   const [search, setSearch] = useState("")
-//   const [data, setData] = useState()
-//   // const [error, setError] = useState()
-//   // const API_KEY = "112c8ce65e0fb907e0450a805f832294";
-//     // const api = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
-
-//   const searchkeyWords = (e) => {
-//     setSearch(e.target.value)
-//   }
-//   const fetchApi = async () => {
-//     const get = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_SECRET_KEY}`);
-//     console.log(get)
-//     const jsonData = await get.json()
-//     // console.log(jsonData)
-//     setData(jsonData.main)
-//   }
-
-//   const handleClick = () => {
-//     fetchApi()
-//   }
-
-//   return (
-//     <>
-//       <div className="main">
-//         <div className="container">
-//           <div className="input">
-//             <input type="text" placeholder='search' onChange={searchkeyWords} value={search} />
-//             <i className="fa-solid fa-magnifying-glass" onClick={handleClick}></i>
-//           </div>
-//           <div>
-//             <div className="weather">
-//               <div className="images">
-//                 <img src={img} alt="" />
-//               </div>
-//               <h2>{search}</h2>
-//               <h2>{data}</h2>
-//             </div>
-//             {
-//               !data?<p className='notFound'>city not found</p>:
-
-//                 <div className="temp">
-//                   <div className="tem_box">
-//                     <i className="fa-solid fa-temperature-three-quarters"></i>
-//                     <p>{data.name}</p>
-//                   </div>
-//                   <div className="tem_box">
-//                     <i className="fa-solid fa-cloud"></i>
-//                     <p>{data.temp}</p>
-//                     <p>{ data.weather.main.temp}</p>
-//                   </div>
-//                 </div>
-//                    }
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default App
-
-
-
-// YOUSHITA DIDI
-
-// import React, { useState } from 'react'
-// import "./App.css"
-// import img from "./images/weather.png"
-// import axios from 'axios'
+// import weather from "../src/images/weather.png"
+// // import cloud from "../src/images/cloud.png"
+// // import rain from "../src/images/rain.png"
 // const App = () => {
 //   const [city, setCity] = useState("")
-//   const [weather, setWeather] = useState("")
-//   const handleCityChange = (e) => {
-//     setCity(e.target.value)
-//   }
+//   const [data, setData] = useState()
+
 //   const fetchWeather = async () => {
-   
-//     try {
-  
-//       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_SECRET_KEY}`)
-//       setWeather(response)
-//       // console.log(response)
+//       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_SECRET_KEY}`)
+//       const jsonres = await response.json();
+//       setData(jsonres)
+//       console.log(jsonres);
 
-
-//     } catch (error) {
-//       console.log(error, "error aya hai bhai");
+//     } 
+//     const handleCityChange = (e) => {
+//       setCity(e.target.value)
 //     }
-//   }
+
 //   const handleClick = () => {
+//     // if (city == ""){
+//     //   alert("city not found")
+//     // }
 //     fetchWeather()
 //     setCity("")
 //   }
@@ -251,30 +39,35 @@
 //           </div>
 //           <div>
 
-//             {!weather ? <h2 className='notFound'>city not found</h2> :
+//             {data && data.weather ? 
 //               <>
 //                 <div className="weather">
 //                   <div className="images">
-//                     <img src={img} alt="weather_img" />
+//                   <img src={weather} alt="weather_img" />
+//                     {/* <img src={data.weather[0].main == "clouds" ? cloud : ""}/>
+//                     <img src={data.weather[0].main == "Rain" ? rain : ""} />
+//                     <img src={data.weather[0].main == "Weather" ? weather : ""} /> */}
+
 //                   </div>
-//                   <h2>{weather.data.name}</h2>
-//                   <h1>{weather.data.main.temp} <span>&deg;c</span></h1>
+//                   <h2>{data.name}</h2>
+//                   <h1>{Math.trunc(data.main.temp)}°C</h1>
 //                 </div>
 
 //                 <div className="temp">
 //                   <div className="tem_box">
 //                     <i className="fa-solid fa-temperature-three-quarters"></i>
 //                     <p>humidity
-//                       {weather.data.main.humidity
+//                       {data.main.humidity
 //                       }</p>
 
 //                   </div>
 //                   <div className="tem_box">
 //                     <i className="fa-solid fa-cloud"></i>
-//                     <p>{weather.data.weather[0].description}</p>
+//                     <p>{data.weather[0].description}</p>
 //                   </div>
 //                 </div>
-//               </>
+//               </>: <h5 className='notFound'>City not found </h5>
+
 //             }
 
 //           </div>
@@ -288,34 +81,58 @@
 
 
 
-// NEW YOUTUBER
+
+
+
+
+
+
+
+
 import React, { useState } from 'react'
 import "./App.css"
-import weather from "../src/images/weather.png"
-// import cloud from "../src/images/cloud.png"
-// import rain from "../src/images/rain.png"
+import clear from '../src/images/clear sky.png';  // Correct path for clear sky image
+import cloud from '../src/images/cloud.png';     // Correct cloud image
+import rain from '../src/images/rain.png';       // Correct rain image
+import sun from '../src/images/sun remove.png';       // Correct rain image
+
+import weather from '../src/images/weather.png';
+
 const App = () => {
   const [city, setCity] = useState("")
-  const [data, setData] = useState()
- 
-  const fetchWeather = async () => {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_SECRET_KEY}`)
-      const jsonres = await response.json();
-      setData(jsonres)
-      console.log(jsonres);
+  const [data, setData] = useState(null)
 
-    } 
-    const handleCityChange = (e) => {
-      setCity(e.target.value)
-    }
- 
+  const fetchWeather = async () => {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_SECRET_KEY}`)
+    const jsonres = await response.json();
+    setData(jsonres)
+    console.log(jsonres);
+  }
+
+  const handleCityChange = (e) => {
+    setCity(e.target.value)
+  }
+
   const handleClick = () => {
-    // if (city == ""){
-    //   alert("city not found")
-    // }
     fetchWeather()
     setCity("")
   }
+
+
+  const getWeatherImage = (weatherCondition) => {
+    switch (weatherCondition) {
+      case 'Clear': // Matches "Clear" weather condition for sun
+        return clear; 
+      case 'Clouds': // Matches cloudy weather condition
+        return cloud;
+      case 'Rain':   // Matches rainy weather condition
+        return rain;
+        case 'Sun':   // Matches rainy weather condition
+        return sun;
+      default:
+        return weather; // Default image for other weather conditions
+    }
+  };
 
   return (
     <>
@@ -326,38 +143,39 @@ const App = () => {
             <i className="fa-solid fa-magnifying-glass" onClick={handleClick}></i>
           </div>
           <div>
-
-            {data && data.weather ? 
-              <>
-                <div className="weather">
-                  <div className="images">
-                  <img src={weather} alt="weather_img" />
-                    {/* <img src={data.weather[0].main == "clouds" ? cloud : ""}/>
-                    <img src={data.weather[0].main == "Rain" ? rain : ""} />
-                    <img src={data.weather[0].main == "Weather" ? weather : ""} /> */}
-
+            {
+              data && data.weather ? (
+                <>
+                  <div className="weather">
+                    <div className="images">
+                      <img src={getWeatherImage(data.weather[0].main)} alt="weather_img" />
+                    </div>
+                    <h2>{data.name}</h2>
+                    <h1>{Math.trunc(data.main.temp)}°C</h1>
                   </div>
-                  <h2>{data.name}</h2>
-                  <h1>{Math.trunc(data.main.temp)}°C</h1>
-                </div>
 
-                <div className="temp">
-                  <div className="tem_box">
-                    <i className="fa-solid fa-temperature-three-quarters"></i>
-                    <p>humidity
-                      {data.main.humidity
-                      }</p>
+                  <div className="temp">
+                    <div className="tem_box">
+                      <i className="fa-solid fa-temperature-three-quarters"></i>
+                      {/* <img className='img_icon' src={humidity} alt="img" /> */}
+                      <div className='flex'>
+                        <p className='bold'>{data.main.humidity}</p>
+                        <p>humidity</p>
+                      </div>
+                    </div>
+                    <div className="tem_box">
+                      <i className="fa-solid fa-cloud"></i>
+                      <div className="flex">
+                        <p>{data.weather[0].description}</p>
+                        <p>{data.weather[0].main}</p>
 
+                      </div>
+
+                    </div>
                   </div>
-                  <div className="tem_box">
-                    <i className="fa-solid fa-cloud"></i>
-                    <p>{data.weather[0].description}</p>
-                  </div>
-                </div>
-              </>: <h5 className='notFound'>City not found </h5>
-              
+                </>
+              ) : <h3 className='notFound'>enter your city name</h3>
             }
-
           </div>
         </div>
       </div>
@@ -366,6 +184,10 @@ const App = () => {
 }
 
 export default App
+
+
+
+
 
 
 
